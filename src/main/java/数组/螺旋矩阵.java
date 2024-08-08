@@ -24,64 +24,85 @@ import java.util.List;
 public class 螺旋矩阵 {
 
 
-    class Solution {
+
         public List<Integer> spiralOrder(Integer[][] matrix) {
-//            if (matrix.length == 0) {
-//                return new ArrayList<Integer>();
-//            }
-//            int l = 0, r = matrix[0].length - 1, t = 0, b = matrix.length - 1, x = 0;
-//            Integer[] res = new Integer[(r + 1) * (b + 1)];
-//            while (true) {
-//                for (int i = l; i <= r; i++) res[x++] = matrix[t][i]; // left to right
-//                if (++t > b) break;
-//                for (int i = t; i <= b; i++) res[x++] = matrix[i][r]; // top to bottom
-//                if (l > --r) break;
-//                for (int i = r; i >= l; i--) res[x++] = matrix[b][i]; // right to left
-//                if (t > --b) break;
-//                for (int i = b; i >= t; i--) res[x++] = matrix[i][l]; // bottom to top
-//                if (++l > r) break;
-//            }
-//            return Arrays.asList(res);
             if (matrix.length == 0) {
-                return new ArrayList<>();
+                return new ArrayList<Integer>();
             }
-            //定义边界
-            int t = 0,b = matrix[0].length - 1,l = 0, r = matrix.length - 1,x = 0;
+            int l = 0, r = matrix[0].length - 1, t = 0, b = matrix.length - 1, x = 0;
             Integer[] res = new Integer[(r + 1) * (b + 1)];
-            while (true){
-                //开始从左往右遍历
-                for (int i = l;i< r;i++){
-                    res[x] = matrix[t][i];
-                    x++;
-//                    当超过右边界就停止
-
-                    if (++l > r) {
-                        break;
-                    }
+            while (true) {
+                for (int i = l; i <= r; i++) {
+                    res[x++] = matrix[t][i]; // left to right
                 }
-                //从上往下遍历
-                for (int i =t;i < b;i++){
-                    res[x++] = matrix[i][r];
-
-                    if (i > b) {
-                        ++i;
-                        break;
-                    }
+                if (++t > b) {
+                    break;
                 }
-                //从右往左
-
-                //从下往下完成一次循环
-
-
-
-
+                for (int i = t; i <= b; i++) {
+                    res[x++] = matrix[i][r]; // top to bottom
+                }
+                if (l > --r) {
+                    break;
+                }
+                for (int i = r; i >= l; i--) {
+                    res[x++] = matrix[b][i]; // right to left
+                }
+                if (t > --b) {
+                    break;
+                }
+                for (int i = b; i >= t; i--) {
+                    res[x++] = matrix[i][l]; // bottom to top
+                }
+                if (++l > r) {
+                    break;
+                }
             }
-
-
-
+            return Arrays.asList(res);
+//            if (matrix.length == 0) {
+//                return new ArrayList<>();
+//            }
+//            //定义边界
+//            int t = 0,b = matrix[0].length - 1,l = 0, r = matrix.length - 1,x = 0;
+//            Integer[] res = new Integer[(r + 1) * (b + 1)];
+//            while (true){
+//                //开始从左往右遍历
+//                for (int i = l;i<= r;i++){
+//                    res[x] = matrix[t][i];
+//                    x++;
+////                    当超过右边界就停止
+//
+//                    if (++l > r) {
+//                        break;
+//                    }
+//                }
+//                //从上往下遍历
+//                for (int i =t;i < b;i++){
+//                    res[x++] = matrix[i][r];
+//
+//                    if (i > b) {
+//                        ++i;
+//                        break;
+//                    }
+//                }
+//                //从右往左
+//                for (int i = r;i > l ;i-- ){
+//                    res[x++] = matrix[b][i];
+//
+//                    if (--i < l) {
+//                        break;
+//                    }
+//                }
+//                //从下往下完成一次循环
+//                for (int i = b;i > t;i--){
+//                    res[x++] = matrix[i][l];
+//                    if (--i < t) {
+//                        break;
+//                    }
+//                }
+//            }
+//        }
+//
         }
-    }
-
 
 
 }

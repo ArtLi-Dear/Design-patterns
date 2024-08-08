@@ -2,6 +2,8 @@ package Stream;
 
 public class Actor {
     public Actor(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
     public String getName() {
@@ -24,7 +26,6 @@ public class Actor {
     private int age;
 
     public Actor() {
-        this.name = name;
-        this.age = age;
+
     }
 }
